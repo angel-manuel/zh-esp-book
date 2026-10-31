@@ -1,6 +1,5 @@
 # Output files
-output/*
-!output/chino-espanol.pdf
+output/
 
 # LaTeX temporary files
 *.aux
