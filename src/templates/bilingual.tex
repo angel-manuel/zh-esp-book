@@ -1,0 +1,116 @@
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{space}{xeCJK}
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(papersize)$$papersize$,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+
+% Basic packages
+\usepackage{amssymb,amsmath}
+\usepackage{iftex}
+\usepackage{longtable,booktabs}
+\newcounter{none} % pandoc >= 3.2 sets \LTcaptype{none} for unnumbered tables
+\usepackage{array}
+\usepackage{calc}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+% Footnotes inside tables: footnotehyper is the hyperref-safe version
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\makesavenoteenv{tabular}
+
+% Define \tightlist command used by pandoc
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% Pandoc >= 2.11 emits \real{} (from calc) for column widths
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+
+% Font and language setup: XeLaTeX + xeCJK (provided by the Docker image;
+% scripts/build.sh delegates to it when xeCJK is not installed locally).
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setmainfont{$if(mainfont)$$mainfont$$else$DejaVu Serif$endif$}
+\setCJKmainfont{$if(CJKmainfont)$$CJKmainfont$$else$Noto Serif CJK SC$endif$}
+\setCJKsansfont{$if(CJKsansfont)$$CJKsansfont$$else$Noto Sans CJK SC$endif$}
+\setCJKmonofont{$if(CJKsansfont)$$CJKsansfont$$else$Noto Sans CJK SC$endif$}
+\xeCJKsetup{PunctStyle=quanjiao, CJKmath=false}
+\usepackage{polyglossia}
+\setmainlanguage{spanish}
+
+% Parallel-text tables (see src/filters/paralelo.lua)
+\definecolor{hanzigray}{gray}{0.45}
+\definecolor{lineno}{gray}{0.55}
+\newcommand{\hanzi}[1]{{\small\color{hanzigray}#1}}
+\newcommand{\literal}[1]{{\small\color{hanzigray}\itshape #1}}
+\newcommand{\lineno}[1]{{\footnotesize\sffamily\color{lineno}#1}}
+
+% Page layout
+\usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
+
+% Slightly looser line spacing helps mixed Latin/CJK lines
+\linespread{1.08}
+\setcounter{secnumdepth}{-1}
+
+% Header and footer configuration
+\pagestyle{fancy}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\leftmark}
+\fancyhead[LO]{\rightmark}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Hyperref configuration (loaded last)
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  filecolor=magenta,
+  urlcolor=cyan,
+  pdftitle={$title$},
+  pdfauthor={$author$},
+  pdfsubject={$subtitle$},
+  pdfkeywords={Chinese, Mandarin, pinyin, Spanish, language learning},
+  pdfborder={0 0 0},
+  breaklinks=true
+}
+
+% Footnote formatting.
+% The rule MUST have zero net height: a footnoterule that adds vertical space
+% sends TeX's output routine into an infinite loop as soon as a page carries
+% several footnotes (this is what broke the sibling ruso-esp-book build).
+% The \kern values below cancel out, exactly as in the LaTeX default.
+\setlength{\footnotesep}{0.9em}
+\setlength{\skip\footins}{1.6em}
+\renewcommand{\footnoterule}{\kern-3pt\hrule width 0.3\textwidth height 0.4pt \kern 2.6pt}
+
+% Longtable tweaks: allow tables to break across pages nicely
+\setlength{\LTpre}{0.6em}
+\setlength{\LTpost}{0.6em}
+\setlength{\LTleft}{0pt}
+\renewcommand{\arraystretch}{1.25}
+\setlength{\LTright}{0pt}
+
+% Title formatting
+\title{$title$$if(subtitle)$\\[0.6em]{\large $subtitle$}$endif$}
+\author{$author$}
+\date{$date$}
+
+\begin{document}
+
+% Title page
+\maketitle
+\thispagestyle{empty}
+\clearpage
+
+% Table of contents
+$if(toc)$
+\tableofcontents
+\clearpage
+$endif$
+
+% Main content
+$body$
+
+\end{document}

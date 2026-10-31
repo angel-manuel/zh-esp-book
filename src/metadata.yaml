@@ -1,0 +1,18 @@
+---
+title: "Chino mandarín para hispanohablantes"
+subtitle: "Curso con pinyin y textos paralelos · Lengua, cultura y trato con China"
+author: "Chinese-Spanish Bilingual Book Project"
+date: "2026"
+lang: "es"
+documentclass: book
+classoption:
+  - a4paper
+  - oneside
+toc: true
+toc-depth: 1
+geometry:
+  - margin=2.2cm
+mainfont: "DejaVu Serif"
+CJKmainfont: "Noto Serif CJK SC"
+CJKsansfont: "Noto Sans CJK SC"
+---

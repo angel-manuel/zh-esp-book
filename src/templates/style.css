@@ -1,0 +1,15 @@
+/* HTML style for the Chinese-Spanish book */
+body { max-width: 52em; margin: 2em auto; padding: 0 1em; line-height: 1.6;
+       font-family: "DejaVu Serif", "Noto Serif", "Noto Serif CJK SC", Georgia, serif; }
+h1 { border-bottom: 2px solid #444; padding-bottom: .2em; margin-top: 2em; }
+h2 { border-bottom: 1px solid #aaa; padding-bottom: .1em; margin-top: 1.6em; }
+table { border-collapse: collapse; width: 100%; margin: 1em 0; }
+th, td { border-bottom: 1px solid #ddd; padding: .4em .6em; vertical-align: top; text-align: left; }
+th { background: #f3f3f3; }
+.hanzi { font-family: "Noto Serif CJK SC", "Noto Sans CJK SC", "PingFang SC", serif;
+         color: #777; font-size: .9em; }
+.literal { color: #777; font-style: italic; font-size: .9em; }
+.lineno { color: #999; font-family: sans-serif; font-size: .8em; }
+table.dialogo td:first-child { width: 2em; text-align: right; }
+.footnotes { font-size: .9em; }
+nav#TOC ul { list-style: none; }

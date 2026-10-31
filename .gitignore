@@ -1,0 +1,35 @@
+# Output files
+output/
+
+# LaTeX temporary files
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.xdv
+
+# Pandoc temporary files
+*.tmp
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Editor specific files
+.vscode/
+.idea/
+*.swp
+*~
+
+# Build artifacts
+*.bak
+
+# Temporary files
+tmp/
+temp/
+audio/*.mp3
