@@ -23,11 +23,11 @@ formada rompe la maqueta. Después de escribir, ejecuta `scripts/lint.py` y
 
 ### Personajes recurrentes
 
-| Personaje | Pīnyīn | 汉字 | Papel |
+| Personaje | Pīnyīn | Caracteres | Papel |
 |:--|:--|:--|:--|
 | Carlos | Kǎluòsī | 卡洛斯 | español de Madrid, ingeniero; viaja a China por trabajo (protagonista) |
 | Lucía | Lùxīyà | 露西亚 | su compañera de empresa, estudia chino con él |
-| Wáng Fāng | Wáng Fāng | 王芳 | amiga de Pekín, profesora de español; les explica la cultura |
+| Lín Liǔ | Lín Liǔ | 林柳 | amiga de Pekín, profesora de español; les explica la cultura |
 | Lǐ Míng | Lǐ Míng | 李明 | contacto de negocios en Shanghái, de la edad de Carlos |
 | Zhāng zǒng | Zhāng zǒng | 张总 | director general de la empresa de Lǐ Míng (el alto cargo) |
 | Chén lǎoshī | Chén lǎoshī | 陈老师 | profesora de chino de Carlos (en las lecciones de teoría) |
@@ -48,8 +48,13 @@ Más personal según la escena: 服务员 fúwùyuán (camarero), 司机 sījī 
 4. **Ortografía por palabras** (norma GB/T 16159): las sílabas de una palabra van juntas
    (Zhōngguó, péngyou, xǐhuan, gōngsī), las palabras separadas por espacios
    (Wǒ shì Xībānyá rén.). Clasificador separado (yí gè rén). 的/了/吗/呢 separados.
+   Partículas de aspecto unidas al verbo cuando lo siguen directamente: chīguo, kànzhe,
+   pero `le` siempre separado (chī le, hǎo le) para no confundir al principiante.
+   Demostrativo + 个 junto (zhège, nàge, nǎge); con otros clasificadores, separado
+   (zhè běn shū, nà wèi xiānsheng). Sílabas neutras de duplicación y complementos sin
+   marca: shì bu shì, kàn yi kàn, zhuōzi shang, lǐtou.
 5. **Apóstrofo** ante sílaba que empieza por a, o, e dentro de una palabra: Xī'ān, Tiān'ānmén, nǚ'ér.
-6. **Mayúscula** al inicio de frase y en nombres propios: Běijīng, Wáng Fāng (apellido y
+6. **Mayúscula** al inicio de frase y en nombres propios: Běijīng, Lín Liǔ (apellido y
    nombre separados, ambos con mayúscula), Zhāng zǒng, Chén lǎoshī.
 7. **Puntuación occidental** en el pinyin (`.`, `,`, `?`, `!`, `"…"`), **sin** ¿ ¡ (eso es
    para el español). En la columna 汉字, puntuación china de anchura completa: `，。？！、「」` o `“”`.
@@ -61,6 +66,8 @@ Más personal según la escena: 服务员 fúwùyuán (camarero), 司机 sījī 
 El filtro Lua reconoce **dos cabeceras exactas** y las maqueta en estilo Assimil: a la
 izquierda el pinyin con los caracteres debajo en gris pequeño, a la derecha el español.
 Cualquier otra tabla se deja tal cual (tablas de gramática, comparaciones, etc.).
+Por eso **no uses una columna titulada exactamente `汉字`** en tablas que no sean
+paralelas (usa «Caracteres»).
 
 ### 3.1 Diálogo numerado (texto de cada lección)
 
@@ -68,7 +75,7 @@ Cualquier otra tabla se deja tal cual (tablas de gramática, comparaciones, etc.
 |#|Pīnyīn|汉字|Español|
 |:-|:-----|:---|:------|
 |1|Kǎluòsī: Nǐ hǎo! Wǒ jiào Kǎluòsī.|卡洛斯：你好！我叫卡洛斯。|Carlos: ¡Hola! Me llamo Carlos. *(tú bien / yo llamarse Carlos)*|
-|2|Wáng Fāng: Nǐ hǎo! Wǒ xìng Wáng, jiào Wáng Fāng.|王芳：你好！我姓王，叫王芳。|Wang Fang: ¡Hola! Me apellido Wang, me llamo Wang Fang.|
+|2|Lín Liǔ: Nǐ hǎo! Wǒ xìng Lín, jiào Lín Liǔ.|林柳：你好！我姓林，叫林柳。|Liu Lin: ¡Hola! Me apellido Lin, me llamo Liu Lin.|
 ```
 
 ### 3.2 Vocabulario y frases
@@ -89,7 +96,8 @@ Reglas:
    No en cada línea: en 3-5 líneas por diálogo, menos a medida que avanza el libro.
    Debe empezar por `(` dentro de los asteriscos para que el filtro la ponga en gris.
 3. Hablante al inicio de las tres columnas: pinyin `Kǎluòsī:`, 汉字 `卡洛斯：`, español
-   `Carlos:`. En español los nombres chinos van **sin tonos**: Wang Fang, Li Ming,
+   `Carlos:`. En español los nombres chinos van **sin tonos** y en orden chino (Li Ming,
+   el director Zhang), salvo Liu Lin, que se presenta en orden occidental:
    el director Zhang, la profesora Chen.
 4. Una fila = una línea. Nada de `<br>`, HTML, LaTeX ni `|` dentro de una celda.
 5. **Una línea en blanco antes y después** de cada tabla.
@@ -151,7 +159,7 @@ añadir el término chino entre paréntesis: `## Notas (zhùshì 注释)`.
 - `## Repaso de gramática`: resumen numerado de lo visto en las 6 lecciones anteriores,
   con remisiones («ver lección 3, nota 2»).
 - `## Texto de repaso`: diálogo más largo que sólo usa lo ya visto.
-- `## Ejercicio`, `## Soluciones`. Sin vocabulario nuevo (o casi).
+- Dos o tres ejercicios (`## Ejercicio 1 · Traduce`, `## Ejercicio 2 · Completa`, opcional `## Ejercicio 3 · ¿Qué dirías?`) y `## Soluciones`. Sin vocabulario nuevo (o casi).
 
 ### 4.3 Teoría (T) — explicativa (250-450 líneas)
 

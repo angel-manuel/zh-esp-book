@@ -15,7 +15,8 @@ all_ids = {}
 CJK = re.compile(r"[一-鿿]")
 TONED = re.compile(r"[āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]", re.I)
 # Syllables that legitimately carry no tone mark (neutral tone) when standing alone
-NEUTRAL = {"de", "le", "ma", "ne", "ba", "men", "zi", "ge", "a", "ya", "la", "zhe", "guo", "me", "r"}
+NEUTRAL = {"de", "le", "ma", "ne", "ba", "men", "zi", "ge", "a", "ya", "la", "wa", "na", "zhe", "guo", "me", "r",
+           "bu", "yi", "shang", "xia", "tou", "li", "lai", "qu", "mian", "bian"}
 PAR_HEADERS = {("#", "Pīnyīn", "汉字", "Español"), ("Pīnyīn", "汉字", "Español")}
 
 

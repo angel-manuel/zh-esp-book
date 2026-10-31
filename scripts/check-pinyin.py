@@ -16,6 +16,8 @@ show_tones = "--tones" in sys.argv
 files = args or sorted(glob.glob("src/chapters/[0-9][0-9][0-9]-*.md"))
 HEADERS = {("#", "Pīnyīn", "汉字", "Español"), ("Pīnyīn", "汉字", "Español")}
 CJK = re.compile(r"[一-鿿]")
+# Readings the book prefers over pypinyin defaults (standard colloquial mainland forms)
+PREFERRED = {("谁", "shuí"): "shéi"}
 
 
 def strip_tones(s):
@@ -49,22 +51,33 @@ for f in files:
         py = re.sub(r"\[\^[^\]]+\]", "", py)
         py = re.sub(r"^[^:]{1,25}:\s*", "", py) if re.match(r"^[^:]{1,25}:", py) else py
         hz = re.sub(r"^[^：]{1,12}：", "", hz)
+        py = re.sub(r"^\d+\.\s*", "", py)
+        hz = re.sub(r"^\d+\.\s*", "", hz)
         if re.search(r"\d|___|…|\.\.\.", hz + py) or not CJK.search(hz):
             continue
         chars = "".join(CJK.findall(hz))
         ref = [p[0] for p in pinyin(chars, style=Style.TONE, neutral_tone_with_five=False)]
-        ref_s = "".join(ref)
-        # erhua: 儿 after another syllable is written as -r
+        ref = [PREFERRED.get((h, r), r) for h, r in zip(chars, ref)]
         mine = norm(py)
-        cand = [norm(ref_s), norm("".join(r if not (r == "ér" and k) else "r" for k, r in enumerate(ref)))]
-        if mine in cand:
+        # Candidate reference spellings: plain, and with erhua 儿 written as -r.
+        # Each is a list of (normalized char, source hanzi) so tone diffs can be traced.
+        cands = []
+        for erhua in (False, True):
+            seq = []
+            for k, (h, r) in enumerate(zip(chars, ref)):
+                syl = "r" if (erhua and h == "儿" and k) else r
+                seq += [(c, h) for c in norm(syl)]
+            cands.append(seq)
+        if any(mine == "".join(c for c, _ in seq) for seq in cands):
             continue
-        if any(norm(strip_tones(mine)) == norm(strip_tones(c)) for c in cand):
-            # tone-only difference: forgive 一/不 sandhi and neutral tones (unmarked syllables)
-            base = cand[1] if len(cand[1]) == len(mine) else cand[0]
-            diffs = [(a, b) for a, b in zip(mine, base) if a != b]
-            only_neutral = all(strip_tones(b) == a for a, b in diffs)  # mine unmarked = neutral
-            if only_neutral:
+        same_letters = [seq for seq in cands
+                        if len(seq) == len(mine) and norm(strip_tones(mine)) == norm(strip_tones("".join(c for c, _ in seq)))]
+        if same_letters:
+            seq = same_letters[-1]
+            # forgive: unmarked syllable in the book (neutral tone) and 一/不 sandhi
+            real = [(a, b, h) for a, (b, h) in zip(mine, seq)
+                    if a != b and not (strip_tones(b) == a) and h not in "一不"]
+            if not real:
                 continue
             n_tone += 1
             if show_tones:

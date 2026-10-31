@@ -8,24 +8,24 @@ title: "Lección 1 · ¡Hola! (Nǐ hǎo!)"
 
 > Audio: audio/004.mp3
 
-Carlos acaba de llegar a Pekín. Su amiga Wang Fang ha ido a buscarlo al hotel.
+Carlos acaba de llegar a Pekín. Su amiga Liu Lin ha ido a buscarlo al hotel.
 
 |#|Pīnyīn|汉字|Español|
 |:-|:-----|:---|:------|
 |1|Kǎluòsī: Nǐ hǎo!|卡洛斯：你好！|Carlos: ¡Hola! *(tú bien)*|
-|2|Wáng Fāng: Nǐ hǎo, Kǎluòsī! Nǐ hǎo ma?|王芳：你好，卡洛斯！你好吗？|Wang Fang: ¡Hola, Carlos! ¿Cómo estás? *(tú bien [pregunta])*|
+|2|Lín Liǔ: Nǐ hǎo, Kǎluòsī! Nǐ hǎo ma?|林柳：你好，卡洛斯！你好吗？|Liu Lin: ¡Hola, Carlos! ¿Cómo estás? *(tú bien [pregunta])*|
 |3|Kǎluòsī: Wǒ hěn hǎo, xièxie. Nǐ ne?|卡洛斯：我很好，谢谢。你呢？|Carlos: Estoy bien, gracias. ¿Y tú? *(yo muy bien, gracias. ¿tú?)*|
-|4|Wáng Fāng: Wǒ yě hěn hǎo. Nǐ chī fàn le ma?|王芳：我也很好。你吃饭了吗？|Wang Fang: Yo también estoy bien. ¿Has comido? *(tú comer arroz ya [pregunta])*|
+|4|Lín Liǔ: Wǒ yě hěn hǎo. Nǐ chī fàn le ma?|林柳：我也很好。你吃饭了吗？|Liu Lin: Yo también estoy bien. ¿Has comido? *(tú comer arroz ya [pregunta])*|
 |5|Kǎluòsī: Hái méiyǒu.|卡洛斯：还没有。|Carlos: Todavía no.|
-|6|Wáng Fāng: Zǒu, wǒmen qù chī fàn ba!|王芳：走，我们去吃饭吧！|Wang Fang: ¡Venga, vamos a comer! *(andar, nosotros ir comer arroz [sugerencia])*|
+|6|Lín Liǔ: Zǒu, wǒmen qù chī fàn ba!|林柳：走，我们去吃饭吧！|Liu Lin: ¡Venga, vamos a comer! *(andar, nosotros ir comer arroz [sugerencia])*|
 
 Una hora después, al salir del restaurante:
 
 |#|Pīnyīn|汉字|Español|
 |:-|:-----|:---|:------|
-|7|Wáng Fāng: Chī hǎo le ma?|王芳：吃好了吗？|Wang Fang: ¿Has comido bien? *(comer bien ya [pregunta])*|
+|7|Lín Liǔ: Chī hǎo le ma?|林柳：吃好了吗？|Liu Lin: ¿Has comido bien? *(comer bien ya [pregunta])*|
 |8|Kǎluòsī: Chī hǎo le, hěn hǎochī! Xièxie nǐ!|卡洛斯：吃好了，很好吃！谢谢你！|Carlos: Sí, muy bien, ¡estaba buenísimo! ¡Gracias!|
-|9|Wáng Fāng: Bú kèqi.|王芳：不客气。|Wang Fang: De nada.|
+|9|Lín Liǔ: Bú kèqi.|林柳：不客气。|Liu Lin: De nada.|
 
 Al día siguiente, en su primera clase de chino:
 

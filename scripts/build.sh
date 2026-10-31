@@ -27,7 +27,7 @@ for key in title subtitle author date; do
     [ -n "$v" ] && BOOK_META+=(-M "$key=$v")
 done
 
-OPTS=(--from markdown+pipe_tables+footnotes+smart+fenced_divs
+OPTS=(--from markdown+pipe_tables+footnotes+fenced_divs-smart
       --lua-filter="$SRC/filters/paralelo.lua"
       --toc --toc-depth=1 --metadata-file="$META" "${BOOK_META[@]}")
 
